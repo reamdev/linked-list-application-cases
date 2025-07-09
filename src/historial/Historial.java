@@ -42,11 +42,11 @@ public class Historial {
                     historial.addToTail("Elimino '" + texto + "'");
                     break;
                 case 4:
-                    System.out.println("Nos vemos");
-                    historial.addToTail("Salio de la apliacion");
+                    historial.showHistory();
                     break;
                 case 5:
-                    System.out.println("");
+                    System.out.println("Nos vemos");
+                    historial.addToTail("Salio de la apliacion");
                     break;
                 default:
                     System.out.println("Ingrese una opcion valida!\n");
