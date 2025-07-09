@@ -13,20 +13,20 @@ import simplelistcases.structure.SimpleList;
  */
 public class Record extends SimpleList<Read> {
     public void addRead(double temperature, String hour) {
-        Node newNode = new Node(new Read(temperature, hour));
+        Node<Read> newNode = new Node<Read>(new Read(temperature, hour));
         if (this.head == null) {
             head = newNode;
             return;
         }
-        
-        Node current = head;
+
+        Node<Read> current = head;
         while (current.next != null) {
             current = current.next;
         }
-        
+
         current.next = newNode;
     }
-    
+
     // Detectar anomalías (diferencia mayor a X entre lecturas consecutivas)
     public void detectAnomalies(double maxDiferences) {
         if (this.head == null || this.head.next == null) {
@@ -34,7 +34,7 @@ public class Record extends SimpleList<Read> {
             return;
         }
 
-        Node current = this.head;
+        Node<Read> current = this.head;
         while (current.next != null) {
             Read data = (Read) current.getData();
             Read nextData = (Read) current.next.getData();
@@ -47,10 +47,10 @@ public class Record extends SimpleList<Read> {
             current = current.next;
         }
     }
-    
+
     // Mostrar lecturas
     public void showReadings() {
-        Node current = this.head;
+        Node<Read> current = this.head;
         if (current == null) {
             System.out.println("No hay lecturas.");
             return;

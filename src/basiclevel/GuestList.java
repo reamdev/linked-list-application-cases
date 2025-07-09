@@ -53,7 +53,7 @@ public class GuestList {
             System.out.println("No hay invitados.");
             return;
         }
-        System.out.println("Lista de invitados:");
+        System.out.println("\nLista de invitados:");
         while (current != null) {
             System.out.print(current.name + " -> ");
             current = current.next;

@@ -11,7 +11,7 @@ package sensorregister;
 public class Read {
     double temperature;
     String hour;
-    
+
     Read(double temperature, String hour) {
         this.temperature = temperature;
         this.hour = hour;

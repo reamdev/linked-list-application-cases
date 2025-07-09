@@ -11,28 +11,29 @@ import java.util.Scanner;
  * @author ream_
  */
 public class SensorRegister {
-    public static void main(String[] args) {
+    public static void main(Scanner input) {
         Record record = new Record();
-        Scanner input = new Scanner(System.in);
         int op;
 
         do {
-            System.out.println("Que accion va a realizar?");
+            System.out.println("\nQue accion va a realizar?");
             System.out.println("1. Registrar Lectura");
             System.out.println("2. Identificar anomalias");
             System.out.println("3. Mostrar Lecturas");
             System.out.println("4. Salir");
             System.out.print("Ingrese la opcion: ");
             op = input.nextInt();
-            
+            input.nextLine();
+
             double temperature = 16;
             String hour = "";
             switch(op) {
                 case 1:
-                    System.out.print("Ingrese la temperatura");
+                    System.out.print("Ingrese la temperatura: ");
                     temperature = input.nextDouble();
-                    
-                    System.out.println("Ingrese la hora");
+                    input.nextLine();
+
+                    System.out.println("Ingrese la hora: ");
                     hour = input.nextLine();
                     record.addRead(temperature, hour);
                     break;

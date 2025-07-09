@@ -61,7 +61,7 @@ public class ShoppingCart {
             System.out.println("El carrito está vacío.");
             return;
         }
-        System.out.println("Productos en el carrito:");
+        System.out.println("\nProductos en el carrito:");
         while (current != null) {
             System.out.print(current.item + " -> ");
             current = current.next;
@@ -74,8 +74,8 @@ public class ShoppingCart {
         cart.addItem("Camisa");
         cart.addItem("Zapatos");
         cart.showCart();
-        System.out.println("Eliminando 'Camisa' del carrito...");
+        System.out.println("\nEliminando 'Camisa' del carrito...");
         cart.removeItem("Camisa");
         cart.showCart();
-    }    
+    }
 }

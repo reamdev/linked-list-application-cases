@@ -61,7 +61,10 @@ public class ToDoList {
             System.out.println("No hay tareas pendientes.");
             return;
         }
-        System.out.println("Tareas pendientes:");
+
+        System.out.println("\nTareas pendientes:");
+        System.out.println("====================");
+
         while (current != null) {
             System.out.print(current.task + " -> ");
             current = current.next;

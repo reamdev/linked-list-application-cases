@@ -13,22 +13,22 @@ import simplelistcases.structure.SimpleList;
  */
 public class CategoryList extends SimpleList<Category> {
     public void addCategory(String name, int numProductos) {
-        Node node = new Node(new Category(name, numProductos));
+        Node<Category> node = new Node<Category>(new Category(name, numProductos));
         if (this.head == null) {
             this.head = node;
             return;
         }
-        
-        Node currentNode = head;
+
+        Node<Category> currentNode = head;
         while (currentNode.next != null) {
             currentNode = currentNode.next;
         }
         currentNode.next = node;
     }
-    
+
     public CategoryList filtrarPorProductos(int minimoProductos) {
         CategoryList filtered = new CategoryList();
-        Node current = head;
+        Node<Category> current = head;
         while (current != null) {
             Category data = (Category) current.getData();
             if (data.numProductos > minimoProductos) {
@@ -38,4 +38,17 @@ public class CategoryList extends SimpleList<Category> {
         }
         return filtered;
     }
+
+    public void showCategories() {
+            Node<Category> current = this.head;
+            if (current == null) {
+                System.out.println("No hay categorías.");
+                return;
+            }
+            while (current != null) {
+                Category data = (Category) current.getData();
+                System.out.println("Categoría: " + data.name + ", Productos: " + data.numProductos);
+                current = current.next;
+            }
+        }
 }

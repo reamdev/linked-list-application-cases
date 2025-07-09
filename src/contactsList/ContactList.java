@@ -11,15 +11,15 @@ import simplelistcases.structure.SimpleList;
  *
  * @author ream_
  */
-public class ContactList extends SimpleList {
+public class ContactList extends SimpleList<Contact> {
 
     public void addContact(String name, int notReadMessages) {
-        Node newNode = new Node(new Contact(name, notReadMessages));
+        Node<Contact> newNode = new Node<Contact>(new Contact(name, notReadMessages));
         if (this.head == null) {
             this.head = newNode;
             return;
         }
-        Node current = this.head;
+        Node<Contact> current = this.head;
         while (current.next != null) {
             current = current.next;
         }
@@ -29,12 +29,12 @@ public class ContactList extends SimpleList {
     public ContactList[] particionarPorMensajes() {
         ContactList withMessages = new ContactList();
         ContactList notMessages = new ContactList();
-        Node current = this.head;
+        Node<Contact> current = this.head;
 
         while (current != null) {
-            Node next = current.next;
+            Node<Contact> next = current.next;
             current.next = null; // Desconectar
-            
+
             Contact data = (Contact) current.getData();
             if (data.notReadMessages > 0) {
                 withMessages.addContact(data.name, data.notReadMessages);
@@ -48,7 +48,7 @@ public class ContactList extends SimpleList {
     }
 
     public void showContacts() {
-        Node current = this.head;
+        Node<Contact> current = this.head;
         if (current == null) {
             System.out.println("No hay contactos.");
             return;

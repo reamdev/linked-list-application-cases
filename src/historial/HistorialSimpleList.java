@@ -13,14 +13,14 @@ import simplelistcases.structure.SimpleList;
  */
 public class HistorialSimpleList extends SimpleList<String>{
     public void showHistory() {
-        Node current = this.head;
+        Node<String> current = this.head;
         System.out.println("Historial de Acciones");
         while (current != null) {
             System.out.println("- " + current.getData());
             current = current.next;
         }
     }
-    
+
     public String getLastAction() {
         return this.tail != null ? this.tail.getData() : "Sin acciones realizadas";
     }
